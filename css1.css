@@ -1,0 +1,344 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body { 
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
+}
+
+h1 {
+   font-size: 250%
+}
+
+p {
+  font-size: 140%;
+  line-height: 150%;
+  color: #333;
+}
+
+.slide {
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+	transform-style: inherit;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+img:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.title {
+  width: 50%;
+  padding: 5%;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+.title1 {
+  width: 100%;
+  padding: 5%;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-right: auto;
+}
+.box{
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 15%;
+}
+.slide:nth-child(2n+1) .title {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide, .slide:before {
+  background: 50% 50% / cover;  
+}
+
+.header1 {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
+.slidethumb{
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 50vh;
+  width: 25vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+  transform-style: inherit;
+
+}
+#title {
+  background-image: url("images/cover.jpeg");
+  z-index:2;
+}
+
+#title h1 {
+ transform: translateZ(.25px) scale(.75);
+ transform-origin: 50% 100%;
+
+}
+
+#slide1:before {
+  background-image: url("images/parallax3.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+  background-image: url("images/parallax2.jpg");
+  z-index:2;
+}
+#slide21 {
+  background-image: url("images/last.jpeg");
+  z-index:2;
+}
+
+#slide3:before {
+  background-image: url("images/parallax2.jpeg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+  background: #222;
+}
+
+.pic-thumb-view{
+  overflow:hidden;
+  max-height:350px;
+}
+.pic-thumbnail-list{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:25px 25px 400px 25px;
+  
+}
+.thumbnail{
+  flex:0 0 auto;
+  margin-right:15px;
+  width:400px;
+  height:auto;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Indie+Flower');
+
+.info-thumb-pic{
+  width:100%;
+  height:100%;
+
+}
+.info-container{
+  position:relative;
+  width:auto;
+  height:250px;
+  box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.38);
+  transition: all 200ms ease-out;
+  background-image: url("images/bg111.jpg");
+
+}
+.info-container1{
+  position:relative;
+  width:auto;
+  height:250px;
+  box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.38);
+  transition: all 200ms ease-out;
+  background-image: url("images/bg2.jpg");
+
+}
+.info-container:hover{
+  box-shadow: 0px 0px 100px #000000;
+  z-index: 2;
+  transition: all 300ms ease-in;
+  transform: scale(1.08);
+
+}
+.info-container1:active{
+  transform: translateZ(2px);
+  box-shadow: 0px 0px 100px rgba(0,0,0,0.38);
+
+}
+.info-container1:hover{
+  box-shadow: 0px 0px 100px #000000;
+  z-index: 2;
+  transition: all 300ms ease-in;
+  transform: scale(1.08);
+
+}
+<!--.info-container:active{
+  transform: translateZ(2px);
+  box-shadow: 0px 0px 100px rgba(0,0,0,0.38);
+
+}-->
+.info-thumb-header{
+  position: absolute;
+  bottom:15%;
+  left: 2%;
+  color:white;
+  font-family: 'Indie Flower', cursive;
+  /*background-image: url("images/bg1.jgp");*/
+}
+.info-thumb-section{
+  bottom:10%;
+  left: 3%;
+  right: 3%;
+  text-align:justify;
+  position: absolute;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  color:white;
+  font-size:15px;
+  font-family: 'Annie Use Your Telescope', cursive; 
+}
+header {
+    /*margin-top: 10rem;*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_container {
+    width: 90%;
+}
+
+.nav_container ul {
+    list-style: none;
+}
+
+.nav_container ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 4rem;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 700;
+    color: rgb(247, 247, 247);
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+}
+
+.main_menu {
+    display: flex;
+}
+
+.main_menu li {
+    position: relative;
+    width: 100%;
+}
+
+.main_menu li a {
+    background-color: #1A535C;
+    transition: background-color 200ms ease-in-out;
+}
+
+.sub_menu li a {
+    background-color: #4ECDC4;
+    text-align: center;
+}
+
+.main_menu li a:hover {
+    background-color: #4ECDC4;
+    color: rgb(255, 255, 255);
+}
+
+.sub_menu li a:hover {
+    background-color: orange;
+    color: white;
+}
+
+.main_menu .show_sub:hover .sub_menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sub_menu {
+    transition: opacity 500ms ease-in-out; 
+    visibility: hidden;
+    opacity: 0;
+}
+
+.main_menu > li:first-child a {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.main_menu > li:last-child a {
+    border-radius: 0 1rem 1rem 0;
+}
+.main_menu > li > a {
+    position: relative;
+}
+
+.main_menu > li > a::before { 
+    content: '';
+    width: 0;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(255, 85, 85);
+    bottom: 3%;
+    z-index: 1;
+    border-radius: 1rem;
+    transition: width 200ms ease-in-out;
+}
+
+.main_menu > li > a:hover:before { 
+    width: 90%;
+}
+
+.sub_menu > li:last-child  > a{
+    border-radius: 0 0 1rem 1rem;
+}
