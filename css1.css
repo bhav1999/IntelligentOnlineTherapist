@@ -342,3 +342,78 @@ header {
 .sub_menu > li:last-child  > a{
     border-radius: 0 0 1rem 1rem;
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+
+.pink2{
+    color: #FD7094;
+}
+.brown{
+  color: #FFF59D;
+}
+.green{
+  color: #4DD0E1;
+}
+.orange{
+  color: #FF7043;
+}
+.blue{
+  color: #29B6F6;
+}
+.purple{
+  color: #CE93D8;
+}
+.pink{
+  color: #FD7094;
+}
+
+/*body{
+  background: url('https://images.unsplash.com/photo-1490367605959-06955305859b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80') center center / cover no-repeat;
+  font-family: 'Concert One', cursive;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}*/
+#container111{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+.row111{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.item111{
+  font-smooth: auto;
+  margin: 0;
+  min-width: 1vw;
+  font-size: 6vw;
+  transition: all 0.1s linear;
+}
+
+#bod{
+  background: url('images/lime.jpg') no-repeat fixed center;
+
+}
+
+#bold1,#demo, #demo1{
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+/*@media (max-width: 1200px){
+  .item{
+    font-size: 8vw;
+  }*/
+
+/*@media (max-width: 700px){
+  .item{
+    font-size: 12vw;
+  }
+}
+*/
