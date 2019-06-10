@@ -40,81 +40,85 @@ def preprocess_input(x, v2=True):
         x = x * 2.0
     return x
 
-detection_model_path = 'haarcascade_frontalface_default.xml'
-emotion_model_path = 'model.hdf5'
-emotion_labels = get_labels()
+def func():
 
-frame_window = 10
-emotion_offsets = (20, 40)
+    detection_model_path = 'haarcascade_frontalface_default.xml'
+    emotion_model_path = 'model.hdf5'
+    emotion_labels = get_labels()
 
-face_detection = load_detection_model(detection_model_path)
-emotion_classifier = load_model(emotion_model_path, compile=False)
-emotion_target_size = emotion_classifier.input_shape[1:3]
+    frame_window = 10
+    emotion_offsets = (20, 40)
 
-emotion_window = []
+    face_detection = load_detection_model(detection_model_path)
+    emotion_classifier = load_model(emotion_model_path, compile=False)
+    emotion_target_size = emotion_classifier.input_shape[1:3]
 
-cv2.namedWindow('window_frame')
-video_capture = cv2.VideoCapture(0)
+    emotion_window = []
 
-capture_duration = 10
-start_time = time.time()
-resarr=[]
-while (int(time.time() - start_time) < capture_duration):
-    bgr_image = video_capture.read()[1]
-    gray_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2GRAY)
-    rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
-    faces = detect_faces(face_detection, gray_image)
+    cv2.namedWindow('window_frame')
+    video_capture = cv2.VideoCapture(0)
 
-    for face_coordinates in faces:
+    capture_duration = 10
+    start_time = time.time()
+    resarr=[]
+    while (int(time.time() - start_time) < capture_duration):
+        bgr_image = video_capture.read()[1]
+        gray_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2GRAY)
+        rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
+        faces = detect_faces(face_detection, gray_image)
 
-        x1, x2, y1, y2 = apply_offsets(face_coordinates, emotion_offsets)
-        gray_face = gray_image[y1:y2, x1:x2]
-        try:
-            gray_face = cv2.resize(gray_face, (emotion_target_size))
-        except:
-            continue
+        for face_coordinates in faces:
 
-        gray_face = preprocess_input(gray_face, True)
-        gray_face = np.expand_dims(gray_face, 0)
-        gray_face = np.expand_dims(gray_face, -1)
-        emotion_prediction = emotion_classifier.predict(gray_face)
-        emotion_probability = np.max(emotion_prediction)
-        emotion_label_arg = np.argmax(emotion_prediction)
-        emotion_text = emotion_labels[emotion_label_arg]
-        resarr.append(emotion_text)
-        emotion_window.append(emotion_text)
+            x1, x2, y1, y2 = apply_offsets(face_coordinates, emotion_offsets)
+            gray_face = gray_image[y1:y2, x1:x2]
+            try:
+                gray_face = cv2.resize(gray_face, (emotion_target_size))
+            except:
+                continue
 
-        if len(emotion_window) > frame_window:
-            emotion_window.pop(0)
-        try:
-            emotion_mode = mode(emotion_window)
-        except:
-            continue
+            gray_face = preprocess_input(gray_face, True)
+            gray_face = np.expand_dims(gray_face, 0)
+            gray_face = np.expand_dims(gray_face, -1)
+            emotion_prediction = emotion_classifier.predict(gray_face)
+            emotion_probability = np.max(emotion_prediction)
+            emotion_label_arg = np.argmax(emotion_prediction)
+            emotion_text = emotion_labels[emotion_label_arg]
+            resarr.append(emotion_text)
+            emotion_window.append(emotion_text)
 
-
-        color = np.asarray((0, 0, 0))
-
-
-        color = color.astype(int)
-        color = color.tolist()
-
-        draw_bounding_box(face_coordinates, rgb_image, color)
-        draw_text(face_coordinates, rgb_image, emotion_mode,
-                  color, 0, -45, 1, 1)
+            if len(emotion_window) > frame_window:
+                emotion_window.pop(0)
+            try:
+                emotion_mode = mode(emotion_window)
+            except:
+                continue
 
 
-    bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
-    cv2.imshow('window_frame', bgr_image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-n=len(resarr)
-score=0
-for i in resarr:
-    print(i)
-    if i=="happy": score+=2
-    elif i=="angry":score-=1
-    elif i=="disgust":score-=1
-    elif i=="fear":score-=1
-    elif i == "sad": score-=1
-    elif i== "neutral": score+=0
-print(score/n)
+            color = np.asarray((0, 0, 0))
+
+
+            color = color.astype(int)
+            color = color.tolist()
+
+            draw_bounding_box(face_coordinates, rgb_image, color)
+            draw_text(face_coordinates, rgb_image, emotion_mode,
+                      color, 0, -45, 1, 1)
+
+
+        bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
+        cv2.imshow('window_frame', bgr_image)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    n=len(resarr)
+    score=0
+    for i in resarr:
+        print(i)
+        if i=="happy": score+=2
+        elif i=="angry":score-=1
+        elif i=="disgust":score-=1
+        elif i=="fear":score-=1
+        elif i == "sad": score-=1
+        elif i== "neutral": score+=0
+    print(score/n)
+    cv2.destroyWindow('window_frame')
+    return score/n
