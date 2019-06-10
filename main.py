@@ -3,6 +3,7 @@ import cv2
 from keras.models import load_model
 import numpy as np
 from statistics import mode
+import time
 
 def get_labels():
     return {0:'angry',1:'disgust',2:'fear',3:'happy',
@@ -55,8 +56,10 @@ emotion_window = []
 cv2.namedWindow('window_frame')
 video_capture = cv2.VideoCapture(0)
 
-
-while True:
+capture_duration = 10
+start_time = time.time()
+resarr=[]
+while (int(time.time() - start_time) < capture_duration):
     bgr_image = video_capture.read()[1]
     gray_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2GRAY)
     rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
@@ -78,6 +81,7 @@ while True:
         emotion_probability = np.max(emotion_prediction)
         emotion_label_arg = np.argmax(emotion_prediction)
         emotion_text = emotion_labels[emotion_label_arg]
+        resarr.append(emotion_text)
         emotion_window.append(emotion_text)
 
         if len(emotion_window) > frame_window:
@@ -98,7 +102,19 @@ while True:
         draw_text(face_coordinates, rgb_image, emotion_mode,
                   color, 0, -45, 1, 1)
 
+
     bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
     cv2.imshow('window_frame', bgr_image)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+n=len(resarr)
+score=0
+for i in resarr:
+    print(i)
+    if i=="happy": score+=2
+    elif i=="angry":score-=1
+    elif i=="disgust":score-=1
+    elif i=="fear":score-=1
+    elif i == "sad": score-=1
+    elif i== "neutral": score+=0
+print(score/n)
