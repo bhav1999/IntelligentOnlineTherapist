@@ -208,31 +208,32 @@ sc_bow.train()
 preds_bow = sc_bow.predict(testData['message'])
 
 
+def func(message):
+    mes = []
+    answerarr=[]
+    mes = message.split(".")
+    for m in mes:
+        print(m,end=" ")
+        ans=0
+        pm = process_message(m)
+        res = sc_tf_idf.classify(pm)
+        ans+=0.05*int(res)
+        print(ans,end=" ")
 
-message="I am happy.I feel like I should die.I am depressed"
-mes = []
-answerarr=[]
-mes = message.split(".")
-for m in mes:
-    print(m,end=" ")
-    ans=0
-    pm = process_message(m)
-    res = sc_tf_idf.classify(pm)
-    ans+=0.05*int(res)
-    print(ans,end=" ")
+        pm = process_message(m)
+        res = sc_bow.classify(pm)
+        ans+=0.05*int(res)
+        print(ans,end=" ")
 
-    pm = process_message(m)
-    res = sc_bow.classify(pm)
-    ans+=0.05*int(res)
-    print(ans,end=" ")
-
-    analysis = TextBlob(m)
-    #print(analysis.sentiment.polarity)
-    if analysis.sentiment.polarity > 0:
-        ans+=0.2*1
-    else:
-        ans+=0.9*1
-    print(ans)
-    answerarr.append(ans)
-print(sum(answerarr)/len(answerarr))
+        analysis = TextBlob(m)
+        #print(analysis.sentiment.polarity)
+        if analysis.sentiment.polarity > 0:
+            ans+=0.2*1
+        else:
+            ans+=0.9*1
+        print(ans)
+        answerarr.append(ans)
+    score=sum(answerarr)/len(answerarr)
+    print(score)
+    return score
 
