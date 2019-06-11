@@ -119,7 +119,7 @@ img:last-of-type {
 
 }
 #title {
-  background-image: url("../img/cover.jpeg");
+  background-image: url("images/cover.jpeg");
   z-index:2;
 }
 
@@ -131,12 +131,12 @@ img:last-of-type {
 
 #slide1:before {
 
-  background-image: url("../img/parallax3.jpg");
+  background-image: url("images/parallax3.jpg");
   transform: translateZ(-1px) scale(2);
 }
 
 #slide2 {
-  background-image: url("static/img/parallax2.jpg");
+  background-image: url("images/parallax2.jpg");
   z-index:2;
 }
 #slide21 {
@@ -170,7 +170,7 @@ img:last-of-type {
 .thumbnail{
   flex:0 0 auto;
   margin-right:15px;
-  width:400px;
+  width:300px;
   height:auto;
 }
 

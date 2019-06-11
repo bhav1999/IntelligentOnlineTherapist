@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Intelligent Online Therapist</title>
-  <link rel="stylesheet" href="css1.css">
+  <link rel="stylesheet" type="text/css" href="css1.css">
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -279,6 +279,7 @@
   margin: 4px 2px;
   " type="submit" value= "SUBMIT"onclick="myFun()">
 
+
 </center>
 <hr><hr><br><br>
 <center><p id="demo"></p></center>
@@ -369,6 +370,7 @@ if(global1>40){
 document.getElementById("demo1").innerHTML = "Finally, we would like to add that it's for your best if you're very much open with your healthcare professional.We wish you all the best !" ;
 
 $.get( "/BDIEvaluate/"+global1 );
+window.location.href='{{ url_for( 'index' ) }}';
 
 }
 </script>

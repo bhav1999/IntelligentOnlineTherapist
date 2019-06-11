@@ -16,9 +16,9 @@ def index():
 def sentimental_analysis():
     return render_template('senti-index.html')
 
-@app.route('/sentiment', methods = ['GET'])
-def sentiment():
-    val= depression_detection_tweets.func("I am happy")
+@app.route('/sentiment/<s>', methods = ['GET'])
+def sentiment(s):
+    val= depression_detection_tweets.func(s)
     print(val)
     return render_template("index.html")
 
@@ -37,9 +37,9 @@ def emotion_detection():
 def BDI():
     return render_template('BDI.html')
 
-@app.route('/BDIEvaluate/<jsdata>')
-def get_javascript_data(jsdata):
-    print (jsdata)
+@app.route('/BDIEvaluate/<score>')
+def get_javascript_data(score):
+    print (score)
     return render_template("index.html")
 
 #@app.route('/employee',methods = ['GET'])
