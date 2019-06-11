@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 	
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
-
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="bdi.js"></script>
     <style type="text/css">
     	fieldset{padding:3%;}
@@ -278,6 +278,7 @@
   text-decoration: none;
   margin: 4px 2px;
   " type="submit" value= "SUBMIT"onclick="myFun()">
+
 </center>
 <hr><hr><br><br>
 <center><p id="demo"></p></center>
@@ -367,7 +368,7 @@ if(global1>40){
 }
 document.getElementById("demo1").innerHTML = "Finally, we would like to add that it's for your best if you're very much open with your healthcare professional.We wish you all the best !" ;
 
-
+$.get( "/BDIEvaluate/"+global1 );
 
 }
 </script>

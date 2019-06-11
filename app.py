@@ -6,6 +6,8 @@ import face_recognition
 
 app = Flask(__name__)
 
+#< a href = "{{ url_for('logout') }}" > logout < / a >
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -32,8 +34,13 @@ def emotion_detection():
 
 
 @app.route('/BDI', methods = ['GET'])
-def bdi():
+def BDI():
     return render_template('BDI.html')
+
+@app.route('/BDIEvaluate/<jsdata>')
+def get_javascript_data(jsdata):
+    print (jsdata)
+    return render_template("index.html")
 
 #@app.route('/employee',methods = ['GET'])
 #def employee()

@@ -72,12 +72,12 @@ While psychological and/or medical treatment can help with your recovery, there 
     <div class="pic-thumb-view">
   <div class="pic-thumbnail-list">
     <div class="thumbnail">
-      <a href="BDI.html">
+       <a href="{{ url_for('sentimental_analysis') }}">
       <div class="info-container">
         <!-- <img src="..http://www.escaperoom.ax/wp-content/uploads/2016/02/house-wallpaper-3.jpg" alt="picture" class="info-thumb-pic"> -->
         
         	<div class="info-thumb-header">
-          		<h3>&nbsp Beck's Depression Inventory</h3>
+          		<h3>&nbsp Sentiment Analysis</h3>
         	</div>
         
 
@@ -88,11 +88,11 @@ While psychological and/or medical treatment can help with your recovery, there 
       </a>
     </div>
     <div class="thumbnail">
-      <a href="#">
+       <a href="{{ url_for('emotion_detection') }}">
       <div class="info-container1">
         <!-- <img src="http://4.bp.blogspot.com/-eIFYvodclHQ/UbNxYtXXGMI/AAAAAAAAIl8/UkWtmBiNlss/s1600/Dark+rain+hd.jpg" alt="picture" class="info-thumb-pic"> -->
         <div class="info-thumb-header">
-          <h3>&nbsp A Chat Bot</h3>
+          <h3>&nbsp Emotion Detection</h3>
         </div>
         <!-- <section class="info-thumb-section">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -100,7 +100,24 @@ While psychological and/or medical treatment can help with your recovery, there 
       </div>
       </a>
     </div>
-    
+    <br>
+      <div class="thumbnail">
+      <a href="{{ url_for('BDI') }}">
+      <div class="info-container">
+        <!-- <img src="..http://www.escaperoom.ax/wp-content/uploads/2016/02/house-wallpaper-3.jpg" alt="picture" class="info-thumb-pic"> -->
+
+        	<div class="info-thumb-header">
+          		<h3>&nbsp Beck's Depression Inventory</h3>
+        	</div>
+
+
+        <!-- <section class="info-thumb-section">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        </section> -->
+      </div>
+      </a>
+    </div>
+
     </div>
   </div>
 </div>
