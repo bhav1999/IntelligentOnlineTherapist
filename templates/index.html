@@ -6,6 +6,8 @@
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="static/css/css1.css">
 </head>
 <body>
@@ -120,13 +122,21 @@ While psychological and/or medical treatment can help with your recovery, there 
 
     </div>
   </div>
+
 </div>
 
     
 </div>
+<button type="button" id="evaluate" onclick="myFun()"> EVALUATE </button>
 </div>
 
+    <script>
+        function myFun(){
 
+            window.location.href='{{ url_for( 'Result' ) }}';
+
+        }
+    </script>
 
 <div id="slide4" class="slide header1">
     <h1>The End</h1>

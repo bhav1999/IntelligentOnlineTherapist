@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="static/css/css1.css">
+    <title>Title</title>
+    <style>
+        p{
+            margin-left:20vw;
+            margin-right:20vw;
+            color: white;
+            font-size: 2em;
+        }
+        strong{
+        font-size:2.05em;
+        }
+        #result{
+            margin-top:10vh;
+        }
+    </style>
+</head>
+<body id="b">
+
+<p id="result"></p>
+<p id="final"></p>
+</body >
+</html>
+<script>
+var score={{score}}
+if(score>=0 && score<=10){
+	document.getElementById("result").innerHTML = "<br>The probability of you being depressed is about <br><center><h2>" +score + " %</h2></center><br><strong>These ups and downs are considered normal</strong>.<br> I'll suggest you some good habits that you can try implementing in your life and that will be,number one,: Track gratitude and achievement with a journal.number two : Include 3 things you were grateful for and 3 things you were able to accomplish each day.and the last one is Set up a getaway.  It could be camping with friends or a trip to the tropics.Work your strengths. Do something you're good at to build self-confidence, then tackle a tougher task." ;
+}
+if(score>=11 && score<=16){
+	document.getElementById("result").innerHTML = "<br>The probability of you being depressed is about <br><center><h2>" +score + " %</h2></center> <br> <strong>Mild mood disturbance</strong>.<br> Please seek the help of your medical doctor or mental health provider. Your doctor will likely perform a series of tests to make sure the causes of your depressive and hypomanic symptoms are not due to an underlying medical condition or medication you are taking.Your mental health provider will perform a series of assessments to diagnose the occurrence of cyclothymia, with the ultimate diagnosis being made on your mood history. During your psychological evaluation, the doctor will ask about your family history of mood disorders and might ask you to complete a daily diary of your moods to indicate mood swings that occur during a typical day. Treatment is usually a chronic, lifelong process, with the aim to decrease your depressive and hypomanic symptoms and to decrease your risk of developing bipolar disorder." ;
+}
+if(score>=17 && score<=20){
+	document.getElementById("result").innerHTML = "<br>The probability of you being depressed is about <br><center><h2>" +score + " %</h2></center> <br><strong>Borderline clinical depression</strong>.<br> It's better for you to visit a doctor and cure it in begenning stages rather tahn taking it to next level. your doctor may suggest waiting to see whether it improves on its own, while monitoring your progress. This is known as watchful waiting. They may also suggest lifestyle measures such as exercise and self-help groups.Talking therapies, such as cognitive behavioural therapy (CBT), are often used for mild depression that isn't improving or moderate depression. Antidepressants are also sometimes prescribed." ;
+}
+if(score>=21 && score<=30){
+	document.getElementById("result").innerHTML = "<br>The probability of you being depressed is about <br><center><h2>" +score + " %</h2></center><br> <strong>Moderate depression</strong>.<br> Mild depression can sometimes get better by itself without treatment or by following advice from your General practitioner (or other healthcare professional) on coping with problems and improving sleep. It is adviced that going to bed and getting up at regular times, not eating large meals or smoking or drinking alcohol just before going to bed, and taking regular exercise (as this can also improve sleep).If you do not want treatment or if your healthcare professional thinks you may recover without it, you should be offered another appointment within 2 weeks to see how you are. Your healthcare professional should contact you if you miss this appointment.Possible first treatments for mild depression include a self-help programme, a treatment called computerised cognitive behavioural therapy and a physical activity programme (exercise). If you decide not to have these treatments or they are not available, you may be offered cognitive behavioural therapy (CBT for short) in a group with other people who have similar problems." ;
+}
+if(score>=31 && score<=40){
+	document.getElementById("result").innerHTML = "<br>The probability of you being depressed is about <br><center><h2>" +score + " % </h2></center><br><strong>Severe depression</strong>.<br> Psychotherapy (or talk therapy) has an excellent track record of helping people with severe depressive disorder. A good relationship with a therapist can help improve outcomes.For most people, psychotherapy and medications give better results together than either alone, but this is something to review with your mental health care provider. Further, many clinicians are trained in more than one kind of psychotherapy, so ask your clinician what kind of psychotherapy they practice and how it can help you.Psychoeducation involves teaching individuals about their illness, how to treat it and how to recognize signs of relapse. Family psychoeducation is also helpful for family members who want to understand what their loved one is experiencing. " ;
+}
+if(score>40){
+	document.getElementById("result").innerHTML = "<br>The probability of you being depressed is about <br><center><h2>" +score + " % </h2></center><br><strong>Extreme depression</strong>.<br> Depression is a treatable mental illness. There are three components to the management of depression:Support, ranging from discussing practical solutions and contributing stresses, to educating family members.Psychotherapy, also known as talking therapies, such as cognitive behavioral therapy (CBT).Drug treatment, specifically antidepressants.Psychological or talking therapies for depression include cognitive-behavioral therapy (CBT), interpersonal psychotherapy, and problem-solving treatment. In mild cases of depression, psychotherapies are the first option for treatment; in moderate and severe cases, they may be used alongside other treatment.Antidepressants are drugs available on prescription from a doctor. Drugs come into use for moderate to severe depression, but are not recommended for children, and will be prescribed only with caution for adolescents. " ;
+}
+document.getElementById("final").innerHTML = "Finally, we would like to add that it's for your best if you're very much open with your healthcare professional.We wish you all the best !" ;
+</script>

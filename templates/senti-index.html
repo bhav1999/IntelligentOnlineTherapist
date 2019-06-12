@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="speech-input.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" type="text/css" href="static/css/css1.css">
 <head>
 <style type="text/css">
 		.si-wrapper {
@@ -15,6 +16,11 @@
 
 .speech-input {
 	margin: 0;
+	background-color:black;
+	color:white;
+
+
+
 }
 
 .si-wrapper button {
@@ -105,7 +111,8 @@
 
 #textbox{
 	/*position: absolute;*/
-	/*margin-top:*/
+	margin-top:2vh;
+
 	
 }
 
@@ -114,8 +121,21 @@
 	font-size: 40px;
 	font-weight: bold;
 	font-family: Comic Sans MS;
-	margin-top:20%;
+	margin-top:20vh;
 	
+}
+#done{
+	color:white;
+	margin-left:41%;
+	width:15em;
+	height:3em;
+	font-size:1em;
+	background-color: black;
+	border-radius: 5px solid white;
+	font-weight:bold;
+
+
+
 }
 </style>
 </head>
@@ -123,7 +143,7 @@
 	<code><span class="tag-marker">&lt;</span><span class="tag-name">input</span><span class="tag-marker">&gt;</span></code> and <code><span class="tag-marker">&lt;</span><span class="tag-name">textarea</span><span class="tag-marker">&gt;</span></code> speech recognition
 	<a class="github-button" href="https://github.com/Daniel-Hug/speech-input" data-icon="octicon-star" data-style="mega" data-count-href="/Daniel-Hug/speech-input/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star Daniel-Hug/speech-input on GitHub">Star</a>
 </h1> -->
-<body style=" background: url('bg.jpg') no-repeat fixed center;">
+<body id="bo" style="margin-left:-2em;">
 	<div>
 
 <form action="." method="get" style="z-index: -1">
@@ -142,7 +162,7 @@
 </center>
 </div>
 </div>
-<button type="button" onclick="func()">Done!</button>
+<button id="done" type="button" onclick="func()">Done!</button>
 <!-- <h2>Multi-line text area</h2>
 <textarea class="speech-input" placeholder="What's your story?" rows="10" cols="40" name="eng-textarea"></textarea> -->
 
