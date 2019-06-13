@@ -117,7 +117,7 @@ def func():
         elif i=="angry":score-=1
         elif i=="disgust":score-=1
         elif i=="fear":score-=1
-        elif i == "sad": score-=1
+        elif i == "sad": score-=2
         elif i== "neutral": score+=0
     print(score/n)
     cv2.destroyWindow('window_frame')

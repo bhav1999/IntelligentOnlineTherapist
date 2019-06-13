@@ -10,7 +10,8 @@ Original file is located at
 
 # Installing and importing libraries
 """
-
+from textblob import TextBlob;
+'''
 
 import nltk
 nltk.download('punkt')
@@ -19,7 +20,7 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import matplotlib.pyplot as plt
 #import speech_recognition as sr;
-from textblob import TextBlob;
+
 from wordcloud import WordCloud
 from math import log, sqrt
 import pandas as pd
@@ -207,23 +208,14 @@ sc_bow = TweetClassifier(trainData, 'bow')
 sc_bow.train()
 preds_bow = sc_bow.predict(testData['message'])
 
-
+'''
 def func(message):
     mes = []
     answerarr=[]
     mes = message.split(".")
+    ans=0
     for m in mes:
-        print(m,end=" ")
-        ans=0
-        pm = process_message(m)
-        res = sc_tf_idf.classify(pm)
-        ans+=0.05*int(res)
-        print(ans,end=" ")
 
-        pm = process_message(m)
-        res = sc_bow.classify(pm)
-        ans+=0.05*int(res)
-        print(ans,end=" ")
 
         analysis = TextBlob(m)
         #print(analysis.sentiment.polarity)

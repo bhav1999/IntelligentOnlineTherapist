@@ -53,6 +53,7 @@ def Result():
     for i in res:
         s+=(res[i])
     s=round(s,2)
+    print(s)
     return render_template('Result.html',score=s)
 
 
